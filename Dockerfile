@@ -61,7 +61,11 @@ RUN apt-get -y --allow-downgrades --allow-remove-essential --allow-change-held-p
 	curl \
 	cpio \
 	git \
-	wget
+	wget \
+	# dev packages \
+	tmux \
+	ccls \
+	bear
 
 # Download repo
 RUN curl https://storage.googleapis.com/git-repo-downloads/repo > /bin/repo
