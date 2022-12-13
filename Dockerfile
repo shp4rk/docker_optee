@@ -65,7 +65,8 @@ RUN apt-get -y --allow-downgrades --allow-remove-essential --allow-change-held-p
 	# dev packages \
 	tmux \
 	ccls \
-	bear
+	bear \
+	sudo
 
 # Download repo
 RUN curl https://storage.googleapis.com/git-repo-downloads/repo > /bin/repo
@@ -74,6 +75,7 @@ RUN chmod a+x /bin/repo
 # Exchange 1000 to the user id of the current user
 RUN useradd --shell /bin/bash -u 1000 -o -c "" -m optee
 RUN echo 'optee:optee' | chpasswd
+run echo "%optee ALL=NOPASSWD: ALL" >> /etc/sudoers
 
 RUN mkdir -p /home/optee/qemu-optee
 
